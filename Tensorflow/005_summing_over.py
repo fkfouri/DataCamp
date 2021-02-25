@@ -1,4 +1,5 @@
-from tensorflow import ones, reduce_sum
+from tensorflow import ones, reduce_sum, constant
+import numpy as np
 """
 https://campus.datacamp.com/courses/introduction-to-tensorflow-in-python/introduction-to-tensorflow?ex=4
 """
@@ -20,3 +21,17 @@ print("-" * 10, "reduce 1", B1.numpy())
 
 B2 = reduce_sum(A, 2)
 print("-" * 10, "reduce 2", B2.numpy())
+
+
+wealth_array = np.array([[11, 50],
+       [ 7,  2],
+       [ 4, 60],
+       [ 3,  0],
+       [25, 10]])
+
+wealth = constant(wealth_array)
+
+print('\n wealth: \n{}'.format(wealth.numpy()))    
+
+print('\n reduzido pela coluna: \n{}'.format(reduce_sum(wealth, 0).numpy()))  
+print('\n reduzido pela linha: \n{}'.format(reduce_sum(wealth, 1).numpy()))  
